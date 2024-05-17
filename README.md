@@ -1,16 +1,24 @@
 # eulabs-challenge
 
 ![Go](https://img.shields.io/badge/Go-1.21.4-blue.svg)
+![Echo](https://img.shields.io/badge/Echo-4.6.0-blue.svg)
 ![Docker](https://img.shields.io/badge/Docker-20.10.8-blue.svg)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-blue.svg)
-![Echo](https://img.shields.io/badge/Echo-4.6.0-blue.svg)
 ![JWT](https://img.shields.io/badge/JWT-JSON%20Web%20Tokens-orange)
 
-## Descrição
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/25181517/121302934-04a28380-c8e1-11eb-8385-0c4e1e4bcae8.png" width="40" height="40"/> 
+  <img src="https://user-images.githubusercontent.com/25181517/121302936-04a28380-c8e1-11eb-8052-3165705f3af4.png" width="40" height="40"/>
+  <img src="https://user-images.githubusercontent.com/25181517/121302938-053b1a00-c8e1-11eb-81af-f8316e082751.png" width="40" height="40"/>
+  <img src="https://user-images.githubusercontent.com/25181517/121302940-053b1a00-c8e1-11eb-95f1-c900b0bc0f04.png" width="40" height="40"/>
+  <img src="https://user-images.githubusercontent.com/25181517/121302941-05d3b080-c8e1-11eb-867e-d46a1f0b95d0.png" width="40" height="40"/>
+</p>
+
+## 🚀 Descrição
 
 Este é um projeto de API desenvolvido em Go utilizando o framework Echo, seguindo os princípios de Clean Architecture. A API fornece operações CRUD para produtos e pedidos, além de autenticação de usuários com JWT.
 
-## Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
 - ![Go](https://img.shields.io/badge/Go-1.21.4-blue.svg) [Go](https://golang.org/)
 - ![Echo](https://img.shields.io/badge/Echo-4.6.0-blue.svg) [Echo](https://echo.labstack.com/)
@@ -18,121 +26,119 @@ Este é um projeto de API desenvolvido em Go utilizando o framework Echo, seguin
 - ![MySQL](https://img.shields.io/badge/MySQL-8.0-blue.svg) [MySQL](https://www.mysql.com/)
 - ![JWT](https://img.shields.io/badge/JWT-JSON%20Web%20Tokens-orange) [JWT](https://jwt.io/)
 
-## Estrutura do Projeto
+## 📂 Estrutura do Projeto
 
-
+```plaintext
 src/
 |-- cmd/
-| |-- api/
-| |-- main.go
+|   |-- api/
+|       |-- main.go
 |-- core/
-| |-- products/
-| | |-- domain/
-| | | |-- model/
-| | | |-- product.go
-| | | |-- repository/
-| | | |-- product_repository.go
-| | |-- application/
-| | |-- usecase/
-| | |-- createProduct/
-| | | |-- create_product_usecase.go
-| | |-- getProduct/
-| | | |-- get_product_usecase.go
-| | |-- updateProduct/
-| | | |-- update_product_usecase.go
-| | |-- deleteProduct/
-| | |-- delete_product_usecase.go
-| | |-- infrastructure/
-| | |-- repository/
-| | |-- product_repository_impl.go
-| | |-- validator/
-| | |-- validator.go
-| |-- users/
-| |-- domain/
-| | |-- model/
-| | |-- user.go
-| | |-- repository/
-| | |-- user_repository.go
-| |-- application/
-| |-- usecase/
-| |-- registerUser/
-| | |-- register_user_usecase.go
-| |-- loginUser/
-| |-- login_user_usecase.go
-| |-- infrastructure/
-| |-- repository/
-| |-- user_repository_impl.go
-| |-- validator/
-| |-- validator.go
-| |-- orders/
-| |-- domain/
-| | |-- model/
-| | |-- order.go
-| | |-- repository/
-| | |-- order_repository.go
-| |-- application/
-| |-- usecase/
-| |-- createOrder/
-| | |-- create_order_usecase.go
-| |-- getOrder/
-| | |-- get_order_usecase.go
-| |-- updateOrder/
-| | |-- update_order_usecase.go
-| |-- deleteOrder/
-| |-- delete_order_usecase.go
-| |-- infrastructure/
-| |-- repository/
-| |-- order_repository_impl.go
-| |-- validator/
-| |-- validator.go
+|   |-- products/
+|   |   |-- domain/
+|   |   |   |-- model/
+|   |   |       |-- product.go
+|   |   |   |-- repository/
+|   |   |       |-- product_repository.go
+|   |   |-- application/
+|   |       |-- usecase/
+|   |           |-- createProduct/
+|   |           |   |-- create_product_usecase.go
+|   |           |-- getProduct/
+|   |           |   |-- get_product_usecase.go
+|   |           |-- updateProduct/
+|   |           |   |-- update_product_usecase.go
+|   |           |-- deleteProduct/
+|   |               |-- delete_product_usecase.go
+|   |   |-- infrastructure/
+|   |       |-- repository/
+|   |           |-- product_repository_impl.go
+|   |       |-- validator/
+|   |           |-- validator.go
+|   |-- users/
+|       |-- domain/
+|       |   |-- model/
+|       |       |-- user.go
+|       |   |-- repository/
+|       |       |-- user_repository.go
+|       |-- application/
+|           |-- usecase/
+|               |-- registerUser/
+|               |   |-- register_user_usecase.go
+|               |-- loginUser/
+|                   |-- login_user_usecase.go
+|       |-- infrastructure/
+|           |-- repository/
+|               |-- user_repository_impl.go
+|           |-- validator/
+|               |-- validator.go
+|   |-- orders/
+|       |-- domain/
+|       |   |-- model/
+|       |       |-- order.go
+|       |   |-- repository/
+|       |       |-- order_repository.go
+|       |-- application/
+|           |-- usecase/
+|               |-- createOrder/
+|               |   |-- create_order_usecase.go
+|               |-- getOrder/
+|               |   |-- get_order_usecase.go
+|               |-- updateOrder/
+|               |   |-- update_order_usecase.go
+|               |-- deleteOrder/
+|                   |-- delete_order_usecase.go
+|       |-- infrastructure/
+|           |-- repository/
+|               |-- order_repository_impl.go
+|           |-- validator/
+|               |-- validator.go
 |-- go_modules/
-| |-- products/
-| | |-- controller/
-| | | |-- product_controller.go
-| | |-- dto/
-| | |-- create_product_dto.go
-| | |-- get_product_dto.go
-| | |-- update_product_dto.go
-| | |-- delete_product_dto.go
-| |-- users/
-| |-- controller/
-| | |-- user_controller.go
-| |-- dto/
-| |-- register_dto.go
-| |-- login_dto.go
-| |-- orders/
-| |-- controller/
-| | |-- order_controller.go
-| |-- dto/
-| |-- create_order_dto.go
-| |-- get_order_dto.go
-| |-- update_order_dto.go
-| |-- delete_order_dto.go
+|   |-- products/
+|   |   |-- controller/
+|   |   |   |-- product_controller.go
+|   |   |-- dto/
+|   |       |-- create_product_dto.go
+|   |       |-- get_product_dto.go
+|   |       |-- update_product_dto.go
+|   |       |-- delete_product_dto.go
+|   |-- users/
+|       |-- controller/
+|       |   |-- user_controller.go
+|       |-- dto/
+|           |-- register_dto.go
+|           |-- login_dto.go
+|   |-- orders/
+|       |-- controller/
+|       |   |-- order_controller.go
+|       |-- dto/
+|           |-- create_order_dto.go
+|           |-- get_order_dto.go
+|           |-- update_order_dto.go
+|           |-- delete_order_dto.go
 |-- infrastructure/
-| |-- database/
-| |-- db.go
+|   |-- database/
+|       |-- db.go
 |-- db/
-| |-- migrations/
-| |-- 0001_create_users_table.sql
-| |-- 0002_create_products_table.sql
-| |-- 0003_create_orders_table.sql
-| |-- drop_all_tables.sql
-| |-- entrypoint.sh
+|   |-- migrations/
+|       |-- 0001_create_users_table.sql
+|       |-- 0002_create_products_table.sql
+|       |-- 0003_create_orders_table.sql
+|   |-- drop_all_tables.sql
+|   |-- entrypoint.sh
 
 
+📝 Pré-requisitos
 
-## Pré-requisitos
+.Docker
+.Docker Compose Docker Compose
 
-- ![Docker](https://img.shields.io/badge/Docker-20.10.8-blue.svg) [Docker](https://www.docker.com/)
-- ![Docker Compose](https://img.shields.io/badge/Docker%20Compose-1.29.2-blue.svg) [Docker Compose](https://docs.docker.com/compose/)
+🚀 Como Rodar a Aplicação
 
-## Como Rodar a Aplicação
+Clone o repositório:
 
-1. Clone o repositório:
-
-   ```bash
-   git clone https://github.com/MurilloAraujo9mm/eulabs-challenge.git
-   cd eulabs-challenge
+1. git clone https://github.com/MurilloAraujo9mm/eulabs-challenge.git
+cd eulabs-challenge
 
 
 2. Configure as variáveis de ambiente no arquivo .env:
@@ -144,125 +150,34 @@ DB_PASSWORD=MySql2024!
 DB_NAME=database_dev
 JWT_SECRET=supersecretkey
 
-
 3. Suba os containers com Docker Compose:
+
 
 docker-compose up --build
 
 
+4. 
 
-Endpoints da API
-Autenticação
-Registrar Usuário
-
-URL_BASE: http://localhost:8080
+cd /workspace/src/cmd/api
+go run main.go
 
 
-Método: POST
-URL: /register
-
-Corpo da Requisição:
-
-json
-{
-  "username": "user1",
-  "password": "password123"
-}
-Login
-
-Método: POST
-
-URL: /login
-
-Corpo da Requisição:
-
-json
-{
-  "username": "user1",
-  "password": "password123"
-}
-Produtos
-Criar Produto
-
-Método: POST
-
-URL: /products
-
-Corpo da Requisição:
-
-json
-{
-  "name": "Product 1",
-  "price": 100.50
-}
-Consultar Produto
-
-Método: GET
-URL: /products/{id}
-Atualizar Produto
-
-Método: PUT
-
-URL: /products/{id}
-
-Corpo da Requisição:
-
-json
-{
-  "name": "Updated Product",
-  "price": 200.75
-}
-Excluir Produto
-
-Método: DELETE
-URL: /products/{id}
-Pedidos
-Criar Pedido
-
-Método: POST
-
-URL: /orders
-
-Corpo da Requisição:
-
-json
-{
-  "user_id": "user_uuid_here",
-  "product_id": "product_uuid_here",
-  "quantity": 2,
-  "total": 200.00
-}
-Consultar Pedido
-
-Método: GET
-URL: /orders/{id}
-Atualizar Pedido
-
-Método: PUT
-
-URL: /orders/{id}
-
-Corpo da Requisição:
-
-json
-{
-  "quantity": 3,
-  "total": 300.00
-}
-Excluir Pedido
-
-Método: DELETE
-URL: /orders/{id}
+📬 Coleção Postman
+Para facilitar o teste dos endpoints, você pode importar a coleção Postman fornecida:
 
 
-Execute os testes unitários:
+🧪 Executar Testes
 
 
 go test ./...
 
 
-Contato
+
+📄 Licença
+Este projeto está licenciado sob a licença MIT.
+
+👤 Contato
 Nome: Murillo Araujo
 Email: murilloaraujog@gmail.com
 GitHub: MurilloAraujo9mm
-
+linkedin: https://www.linkedin.com/in/murillo-araujo-393549134/details/experience/
