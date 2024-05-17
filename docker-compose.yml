@@ -1,23 +1,38 @@
-version: '3.9'
 
 services:
   app:
     container_name: app
-    image: murillo9mm/eulabs-api-go:1.0
-    restart: always
-    working_dir: /workspace
     build:
-      context: ./_docker
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./_docker/Dockerfile
+    working_dir: /workspace/src
     volumes:
-      - ./workspace:/workspace
-      - ./_docker/.zshrc:/home/dev/.zshrc
-      - ./_docker/.zsh_history:/home/dev/.zsh_history
+      - ./src:/workspace/src
     ports:
       - "8080:8080"
+    env_file:
+      - .env
+    depends_on:
+      - mysql
+    networks:
+      - go_network
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
     networks:
       - go_network
 
 networks:
   go_network:
     driver: bridge
+
+volumes:
+  mysql_data:

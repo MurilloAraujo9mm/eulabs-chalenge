@@ -1,0 +1,39 @@
+# Executáveis e binários
+main
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Diretórios de build
+/build
+/bin
+/pkg
+
+# Dependências do Go
+vendor/
+
+# Arquivos de IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos de log
+*.log
+
+# Arquivos temporários
+tmp/
+*.tmp
+*.temp
+
+# Arquivos de configuração de Docker
+.dockerignore
+
+# Arquivo de variáveis de ambiente
+.env
+
+# Dados do MySQL
+db_data/
+mysql/
