@@ -1,9 +1,9 @@
 package updateOrder
 
 import (
-    "myapp/core/orders/domain/model"
-    "myapp/core/orders/domain/repository"
-    "myapp/go_modules/orders/dto"
+    "eulabsmyapp/core/orders/domain/model"
+    "eulabsmyapp/core/orders/domain/repository"
+    "eulabsmyapp/go_modules/orders/dto"
     "time"
 )
 

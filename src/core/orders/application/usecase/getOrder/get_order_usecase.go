@@ -1,8 +1,8 @@
 package getOrder
 
 import (
-    "myapp/core/orders/domain/model"
-    "myapp/core/orders/domain/repository"
+    "eulabsmyapp/core/orders/domain/model"
+    "eulabsmyapp/core/orders/domain/repository"
 )
 
 type GetOrderUsecase interface {

@@ -1,6 +1,6 @@
 package repository
 
-import "myapp/core/users/domain/model"
+import "eulabsmyapp/core/users/domain/model"
 
 type UserRepository interface {
     Create(user *model.User) error

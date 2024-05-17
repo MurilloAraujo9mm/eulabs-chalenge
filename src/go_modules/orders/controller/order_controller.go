@@ -1,11 +1,11 @@
 package controller
 
 import (
-    "myapp/go_modules/orders/dto"
-    createOrder "myapp/core/orders/application/usecase/createOrder"
-    getOrder "myapp/core/orders/application/usecase/getOrder"
-    updateOrder "myapp/core/orders/application/usecase/updateOrder"
-    deleteOrder "myapp/core/orders/application/usecase/deleteOrder"
+    "eulabsmyapp/go_modules/orders/dto"
+    createOrder "eulabsmyapp/core/orders/application/usecase/createOrder"
+    getOrder "eulabsmyapp/core/orders/application/usecase/getOrder"
+    updateOrder "eulabsmyapp/core/orders/application/usecase/updateOrder"
+    deleteOrder "eulabsmyapp/core/orders/application/usecase/deleteOrder"
     "net/http"
 
     "github.com/labstack/echo/v4"

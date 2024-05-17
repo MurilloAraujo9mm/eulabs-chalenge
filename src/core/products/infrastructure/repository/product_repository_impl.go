@@ -2,8 +2,8 @@ package repository
 
 import (
     "database/sql"
-    "myapp/core/products/domain/model"
-    "myapp/core/products/domain/repository"
+    "eulabsmyapp/core/products/domain/model"
+    "eulabsmyapp/core/products/domain/repository"
 )
 
 type productRepository struct {

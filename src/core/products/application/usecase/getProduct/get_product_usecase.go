@@ -1,8 +1,8 @@
 package getProduct
 
 import (
-    "myapp/core/products/domain/model"
-    "myapp/core/products/domain/repository"
+    "eulabsmyapp/core/products/domain/model"
+    "eulabsmyapp/core/products/domain/repository"
 )
 
 type GetProductUsecase interface {

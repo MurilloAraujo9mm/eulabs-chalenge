@@ -1,4 +1,4 @@
-module myapp
+module eulabsmyapp
 
 go 1.21.4
 
