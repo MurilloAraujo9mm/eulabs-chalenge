@@ -18,7 +18,7 @@ import (
     getOrder "myapp/core/orders/application/usecase/getOrder"
     updateOrder "myapp/core/orders/application/usecase/updateOrder"
     deleteOrder "myapp/core/orders/application/usecase/deleteOrder"
-    "myapp/infrastructure/database"
+    "myapp/config/database"
     productValidator "myapp/core/products/infrastructure/validator"
     userValidator "myapp/core/users/infrastructure/validator"
     "strings"
