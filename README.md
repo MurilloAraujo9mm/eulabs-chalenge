@@ -7,11 +7,11 @@
 ![JWT](https://img.shields.io/badge/JWT-JSON%20Web%20Tokens-orange)
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/25181517/121302934-04a28380-c8e1-11eb-8385-0c4e1e4bcae8.png" width="40" height="40"/> 
-  <img src="https://user-images.githubusercontent.com/25181517/121302936-04a28380-c8e1-11eb-8052-3165705f3af4.png" width="40" height="40"/>
-  <img src="https://user-images.githubusercontent.com/25181517/121302938-053b1a00-c8e1-11eb-81af-f8316e082751.png" width="40" height="40"/>
-  <img src="https://user-images.githubusercontent.com/25181517/121302940-053b1a00-c8e1-11eb-95f1-c900b0bc0f04.png" width="40" height="40"/>
-  <img src="https://user-images.githubusercontent.com/25181517/121302941-05d3b080-c8e1-11eb-867e-d46a1f0b95d0.png" width="40" height="40"/>
+  <img src="https://user-images.githubusercontent.com/71293492/126870072-cd6a8f58-3664-463e-8b98-3ff9b43560dd.png" width="40" height="40"/> 
+  <img src="https://user-images.githubusercontent.com/71293492/126870074-06a6c22e-3af0-4b77-a9c6-3a0e7b2c8b09.png" width="40" height="40"/>
+  <img src="https://user-images.githubusercontent.com/71293492/126870075-ea5c95e8-1d42-43a7-9f70-15335b3f8a03.png" width="40" height="40"/>
+  <img src="https://user-images.githubusercontent.com/71293492/126870077-30b8c8f5-e4c8-4ad1-a5b2-ef723f95b80f.png" width="40" height="40"/>
+  <img src="https://user-images.githubusercontent.com/71293492/126870078-6a7213f0-7c7e-4b83-b3a5-118bed0f5a33.png" width="40" height="40"/>
 </p>
 
 ## 🚀 Descrição
@@ -150,30 +150,19 @@ DB_PASSWORD=MySql2024!
 DB_NAME=database_dev
 JWT_SECRET=supersecretkey
 
-3. Suba os containers com Docker Compose:
-
-
-docker-compose up --build
-
-
-4. 
-
-cd /workspace/src/cmd/api
-go run main.go
+3. Suba os containers com Docker Compose: docker-compose up --build
 
 
 📬 Coleção Postman
+
 Para facilitar o teste dos endpoints, você pode importar a coleção Postman fornecida:
 
 
-🧪 Executar Testes
-
-
-go test ./...
-
+🧪 Executar Testes: go test ./...
 
 
 📄 Licença
+
 Este projeto está licenciado sob a licença MIT.
 
 👤 Contato
