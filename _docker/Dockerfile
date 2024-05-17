@@ -16,12 +16,14 @@ RUN apt-get update -yqq && \
   vim \
   zsh
 
+
+
 RUN groupadd -g 1000 dev && \
   useradd -m -u 1000 -g dev -s $(which zsh) dev
 
-WORKDIR /workspace
+WORKDIR /workspace/src
 
-COPY --chown=dev:dev ./src /workspace
+COPY --chown=dev:dev ./src /workspace/src
 
 USER dev:dev
 
@@ -29,4 +31,4 @@ RUN go install github.com/githubnemo/CompileDaemon@latest
 
 EXPOSE 8080
 
-CMD ["CompileDaemon", "--build=go build -o main .", "--command=./main"]
+CMD ["CompileDaemon", "--build=go build -o main ./cmd/api", "--command=./main"]
