@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  app:
+    container_name: app
+    image: murillo9mm/eulabs-api-go:1.0
+    restart: always
+    working_dir: /workspace
+    build:
+      context: ./_docker
+      dockerfile: Dockerfile
+    volumes:
+      - ./workspace:/workspace
+      - ./_docker/.zshrc:/home/dev/.zshrc
+      - ./_docker/.zsh_history:/home/dev/.zsh_history
+    ports:
+      - "8080:8080"
+    networks:
+      - go_network
+
+networks:
+  go_network:
+    driver: bridge
