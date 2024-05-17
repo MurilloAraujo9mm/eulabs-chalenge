@@ -6,13 +6,6 @@
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-blue.svg)
 ![JWT](https://img.shields.io/badge/JWT-JSON%20Web%20Tokens-orange)
 
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/71293492/126870072-cd6a8f58-3664-463e-8b98-3ff9b43560dd.png" width="40" height="40"/> 
-  <img src="https://user-images.githubusercontent.com/71293492/126870074-06a6c22e-3af0-4b77-a9c6-3a0e7b2c8b09.png" width="40" height="40"/>
-  <img src="https://user-images.githubusercontent.com/71293492/126870075-ea5c95e8-1d42-43a7-9f70-15335b3f8a03.png" width="40" height="40"/>
-  <img src="https://user-images.githubusercontent.com/71293492/126870077-30b8c8f5-e4c8-4ad1-a5b2-ef723f95b80f.png" width="40" height="40"/>
-  <img src="https://user-images.githubusercontent.com/71293492/126870078-6a7213f0-7c7e-4b83-b3a5-118bed0f5a33.png" width="40" height="40"/>
-</p>
 
 ## 🚀 Descrição
 
@@ -149,6 +142,43 @@ DB_USER=root
 DB_PASSWORD=MySql2024!
 DB_NAME=database_dev
 JWT_SECRET=supersecretkey
+
+🚀 Comandos de Criação das Tabelas
+
+Tabela users
+
+📜  CREATE TABLE IF NOT EXISTS users (
+    id VARCHAR(36) PRIMARY KEY,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+Tabela products
+
+📜  CREATE TABLE IF NOT EXISTS products (
+    id VARCHAR(36) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price FLOAT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+Tabela orders
+
+📜  CREATE TABLE IF NOT EXISTS orders (
+    id VARCHAR(36) PRIMARY KEY,
+    user_id VARCHAR(36) NOT NULL,
+    product_id VARCHAR(36) NOT NULL,
+    quantity INT NOT NULL,
+    total FLOAT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
+);
+
 
 3. Suba os containers com Docker Compose: docker-compose up --build
 
