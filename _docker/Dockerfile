@@ -1,7 +1,7 @@
 FROM golang:1.21.4-bullseye
 
 ENV TZ=America/Sao_Paulo
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
@@ -21,11 +21,12 @@ RUN groupadd -g 1000 dev && \
 
 WORKDIR /workspace
 
-COPY . /workspace
+COPY --chown=dev:dev ./src /workspace
 
 USER dev:dev
 
+RUN go install github.com/githubnemo/CompileDaemon@latest
 
 EXPOSE 8080
 
-CMD ["tail", "-f", "/dev/null"]
+CMD ["CompileDaemon", "--build=go build -o main .", "--command=./main"]
