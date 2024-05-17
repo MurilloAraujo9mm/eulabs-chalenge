@@ -2,17 +2,25 @@ package main
 
 import (
     "log"
-    productController "myapp/core/products/controller"
-    productRepository "myapp/core/products/repository"
-    createProduct "myapp/core/products/usecase/createProduct"
-    getProduct "myapp/core/products/usecase/getProduct"
-    updateProduct "myapp/core/products/usecase/updateProduct"
-    deleteProduct "myapp/core/products/usecase/deleteProduct"
-    userController "myapp/core/users/controller"
-    userRepository "myapp/core/users/repository"
-    registerUser "myapp/core/users/usecase/registerUser"
-    loginUser "myapp/core/users/usecase/loginUser"
+    productController "myapp/go_modules/products/controller"
+    productRepository "myapp/core/products/infrastructure/repository"
+    createProduct "myapp/core/products/application/usecase/createProduct"
+    getProduct "myapp/core/products/application/usecase/getProduct"
+    updateProduct "myapp/core/products/application/usecase/updateProduct"
+    deleteProduct "myapp/core/products/application/usecase/deleteProduct"
+    userController "myapp/go_modules/users/controller"
+    userRepository "myapp/core/users/infrastructure/repository"
+    registerUser "myapp/core/users/application/usecase/registerUser"
+    loginUser "myapp/core/users/application/usecase/loginUser"
+    orderController "myapp/go_modules/orders/controller"
+    orderRepository "myapp/core/orders/infrastructure/repository"
+    createOrder "myapp/core/orders/application/usecase/createOrder"
+    getOrder "myapp/core/orders/application/usecase/getOrder"
+    updateOrder "myapp/core/orders/application/usecase/updateOrder"
+    deleteOrder "myapp/core/orders/application/usecase/deleteOrder"
     "myapp/infrastructure/database"
+    productValidator "myapp/core/products/infrastructure/validator"
+    userValidator "myapp/core/users/infrastructure/validator"
     "strings"
 
     "github.com/labstack/echo/v4"
@@ -29,6 +37,9 @@ func main() {
     defer db.Close()
 
     e := echo.New()
+
+    e.Validator = productValidator.NewValidator()
+    e.Validator = userValidator.NewValidator()
 
     e.Use(middleware.Logger())
     e.Use(middleware.Recover())
@@ -63,6 +74,19 @@ func main() {
 
     e.POST("/register", userCtrl.Register)
     e.POST("/login", userCtrl.Login)
+
+    orderRepo := orderRepository.NewOrderRepository(db)
+    orderCreateUsecase := createOrder.NewCreateOrderUsecase(orderRepo)
+    orderGetUsecase := getOrder.NewGetOrderUsecase(orderRepo)
+    orderUpdateUsecase := updateOrder.NewUpdateOrderUsecase(orderRepo)
+    orderDeleteUsecase := deleteOrder.NewDeleteOrderUsecase(orderRepo)
+
+    orderCtrl := orderController.NewOrderController(orderCreateUsecase, orderGetUsecase, orderUpdateUsecase, orderDeleteUsecase)
+
+    e.POST("/orders", orderCtrl.CreateOrder)
+    e.GET("/orders/:id", orderCtrl.GetOrder)
+    e.PUT("/orders/:id", orderCtrl.UpdateOrder)
+    e.DELETE("/orders/:id", orderCtrl.DeleteOrder)
 
     e.Logger.Fatal(e.Start(":8080"))
 }
