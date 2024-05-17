@@ -128,9 +128,8 @@ src/
 Projeto em funcionamento:
 
 
-<img src="project.png" alt="Echo Go">
+<img src="./project.png" alt="Echo Go">
 
-![Screenshot](./project.png)
 
 
 📝 Pré-requisitos
