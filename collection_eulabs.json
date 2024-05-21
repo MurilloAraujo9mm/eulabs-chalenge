@@ -57,7 +57,7 @@
             "colId": "06bf5370-9c35-4d84-a0d4-b28f5bc7f677",
             "containerId": "",
             "name": "findProduct",
-            "url": "http://localhost:8080/products/343d46bb-91cf-4cef-80c5-4424e1a8609e",
+            "url": "http://localhost:8080/product/343d46bb-91cf-4cef-80c5-4424e1a8609e",
             "method": "GET",
             "sortNum": 40000,
             "created": "2024-05-21T01:29:52.286Z",
