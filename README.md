@@ -154,41 +154,14 @@ DB_PASSWORD=MySql2024!
 DB_NAME=database_dev
 JWT_SECRET=supersecretkey
 
-🚀 Comandos de Criação das Tabelas
+🚀 Execute migrations
 
-Tabela users
+docker compose run migrate
 
-📜  CREATE TABLE IF NOT EXISTS users (
-    id VARCHAR(36) PRIMARY KEY,
-    username VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
 
-Tabela products
+🚀 Comando de rollback de migratons:
 
-📜  CREATE TABLE IF NOT EXISTS products (
-    id VARCHAR(36) PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    price FLOAT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
-
-Tabela orders
-
-📜  CREATE TABLE IF NOT EXISTS orders (
-    id VARCHAR(36) PRIMARY KEY,
-    user_id VARCHAR(36) NOT NULL,
-    product_id VARCHAR(36) NOT NULL,
-    quantity INT NOT NULL,
-    total FLOAT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (product_id) REFERENCES products(id)
-);
+docker compose run rollback
 
 
 3. Suba os containers com Docker Compose: docker-compose up --build
