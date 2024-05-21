@@ -171,6 +171,8 @@ docker compose run rollback
 
 Para facilitar o teste dos endpoints, você pode importar a coleção Postman fornecida:
 
+[Download da Coleção Postman](collection_eulabs.json)
+
 
 🧪 Executar Testes: go test ./...
 
