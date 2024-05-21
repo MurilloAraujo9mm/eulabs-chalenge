@@ -2,6 +2,9 @@ package main
 
 import (
     "log"
+    "strings"
+
+    "eulabsmyapp/config/database"
     productController "eulabsmyapp/go_modules/products/controller"
     productRepository "eulabsmyapp/core/products/infrastructure/repository"
     createProduct "eulabsmyapp/core/products/application/usecase/createProduct"
@@ -18,10 +21,8 @@ import (
     getOrder "eulabsmyapp/core/orders/application/usecase/getOrder"
     updateOrder "eulabsmyapp/core/orders/application/usecase/updateOrder"
     deleteOrder "eulabsmyapp/core/orders/application/usecase/deleteOrder"
-    "eulabsmyapp/config/database"
     productValidator "eulabsmyapp/core/products/infrastructure/validator"
     userValidator "eulabsmyapp/core/users/infrastructure/validator"
-    "strings"
 
     "github.com/labstack/echo/v4"
     "github.com/labstack/echo/v4/middleware"
@@ -47,10 +48,8 @@ func main() {
     e.Use(middleware.JWTWithConfig(middleware.JWTConfig{
         SigningKey: jwtSecret,
         Skipper: func(c echo.Context) bool {
-            if c.Path() == "/login" || c.Path() == "/register" || strings.HasPrefix(c.Path(), "/health") {
-                return true
-            }
-            return false
+            path := c.Path()
+            return path == "/login" || path == "/register" || strings.HasPrefix(path, "/health")
         },
     }))
 
@@ -62,10 +61,10 @@ func main() {
 
     productCtrl := productController.NewProductController(productCreateUsecase, productGetUsecase, productUpdateUsecase, productDeleteUsecase)
 
-    e.POST("/products", productCtrl.CreateProduct)
-    e.GET("/products/:id", productCtrl.GetProduct)
-    e.PUT("/products/:id", productCtrl.UpdateProduct)
-    e.DELETE("/products/:id", productCtrl.DeleteProduct)
+    e.POST("/product/create", productCtrl.CreateProduct)
+    e.GET("/product/:id", productCtrl.GetProduct)
+    e.PUT("/product/:id", productCtrl.UpdateProduct)
+    e.DELETE("/product/:id", productCtrl.DeleteProduct)
 
     userRepo := userRepository.NewUserRepository(db)
     registerUsecase := registerUser.NewRegisterUserUsecase(userRepo)
@@ -83,10 +82,14 @@ func main() {
 
     orderCtrl := orderController.NewOrderController(orderCreateUsecase, orderGetUsecase, orderUpdateUsecase, orderDeleteUsecase)
 
-    e.POST("/orders", orderCtrl.CreateOrder)
-    e.GET("/orders/:id", orderCtrl.GetOrder)
-    e.PUT("/orders/:id", orderCtrl.UpdateOrder)
-    e.DELETE("/orders/:id", orderCtrl.DeleteOrder)
+    e.POST("/order/create", orderCtrl.CreateOrder)
+    e.GET("/order/:id", orderCtrl.GetOrder)
+    e.PUT("/order/update/:id", orderCtrl.UpdateOrder)
+    e.DELETE("/orders/delete/:id", orderCtrl.DeleteOrder)
+
+    e.GET("/health", func(c echo.Context) error {
+        return c.String(200, "OK")
+    })
 
     e.Logger.Fatal(e.Start(":8080"))
 }
