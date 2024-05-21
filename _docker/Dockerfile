@@ -16,10 +16,14 @@ RUN apt-get update -yqq && \
   vim \
   zsh
 
-
+ENV GOROOT=/usr/local/go
+ENV GOPATH=/go
+ENV PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 RUN groupadd -g 1000 dev && \
   useradd -m -u 1000 -g dev -s $(which zsh) dev
+
+RUN curl -L https://github.com/golang-migrate/migrate/releases/download/v4.15.2/migrate.linux-amd64.tar.gz | tar xvz -C /usr/local/bin
 
 WORKDIR /workspace/src
 

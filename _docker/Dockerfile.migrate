@@ -1,0 +1,9 @@
+FROM golang:1.21.4-bullseye
+
+WORKDIR /workspace
+
+RUN go install -tags 'mysql' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
+
+COPY ./src /workspace/src
+
+ENTRYPOINT ["migrate"]

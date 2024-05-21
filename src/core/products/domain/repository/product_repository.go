@@ -1,6 +1,6 @@
 package repository
 
-import "myapp/core/products/domain/model"
+import "eulabsmyapp/core/products/domain/model"
 
 type ProductRepository interface {
     Create(product *model.Product) error

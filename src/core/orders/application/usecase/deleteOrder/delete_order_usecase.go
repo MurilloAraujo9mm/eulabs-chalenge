@@ -1,6 +1,6 @@
 package deleteOrder
 
-import "myapp/core/orders/domain/repository"
+import "eulabsmyapp/core/orders/domain/repository"
 
 type DeleteOrderUsecase interface {
     Execute(id string) error

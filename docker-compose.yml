@@ -30,6 +30,42 @@ services:
     networks:
       - go_network
 
+  migrate:
+    container_name: migrate
+    build:
+      context: .
+      dockerfile: ./_docker/Dockerfile.migrate
+    volumes:
+      - ./src:/workspace/src
+    depends_on:
+      - mysql
+    networks:
+      - go_network
+    entrypoint: [
+      "migrate", 
+      "-path", "/workspace/src/db/migrations", 
+      "-database", "mysql://root:${DB_PASSWORD}@tcp(mysql:3306)/${DB_NAME}", 
+      "up"
+    ]
+
+  rollback:
+    container_name: rollback
+    build:
+      context: .
+      dockerfile: ./_docker/Dockerfile.migrate
+    volumes:
+      - ./src:/workspace/src
+    depends_on:
+      - mysql
+    networks:
+      - go_network
+    entrypoint: [
+      "migrate", 
+      "-path", "/workspace/src/db/migrations", 
+      "-database", "mysql://root:${DB_PASSWORD}@tcp(mysql:3306)/${DB_NAME}", 
+      "down"
+    ]
+
 networks:
   go_network:
     driver: bridge

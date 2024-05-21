@@ -1,9 +1,9 @@
 package updateProduct
 
 import (
-    "myapp/core/products/domain/model"
-    "myapp/core/products/domain/repository"
-    "myapp/go_modules/products/dto"
+    "eulabsmyapp/core/products/domain/model"
+    "eulabsmyapp/core/products/domain/repository"
+    "eulabsmyapp/go_modules/products/dto"
 )
 
 type UpdateProductUsecase interface {

@@ -1,11 +1,11 @@
 package controller
 
 import (
-    "myapp/go_modules/products/dto"
-    createProduct "myapp/core/products/application/usecase/createProduct"
-    getProduct "myapp/core/products/application/usecase/getProduct"
-    updateProduct "myapp/core/products/application/usecase/updateProduct"
-    deleteProduct "myapp/core/products/application/usecase/deleteProduct"
+    "eulabsmyapp/go_modules/products/dto"
+    createProduct "eulabsmyapp/core/products/application/usecase/createProduct"
+    getProduct "eulabsmyapp/core/products/application/usecase/getProduct"
+    updateProduct "eulabsmyapp/core/products/application/usecase/updateProduct"
+    deleteProduct "eulabsmyapp/core/products/application/usecase/deleteProduct"
     "net/http"
 
     "github.com/labstack/echo/v4"

@@ -1,6 +1,6 @@
 package deleteProduct
 
-import "myapp/core/products/domain/repository"
+import "eulabsmyapp/core/products/domain/repository"
 
 type DeleteProductUsecase interface {
     Execute(id string) error

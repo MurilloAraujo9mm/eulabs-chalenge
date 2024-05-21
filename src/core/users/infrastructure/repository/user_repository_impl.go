@@ -2,8 +2,8 @@ package repository
 
 import (
     "database/sql"
-    "myapp/core/users/domain/model"
-    "myapp/core/users/domain/repository"
+    "eulabsmyapp/core/users/domain/model"
+    "eulabsmyapp/core/users/domain/repository"
 )
 
 type userRepository struct {

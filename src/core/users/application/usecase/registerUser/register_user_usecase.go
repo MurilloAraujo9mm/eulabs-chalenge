@@ -1,9 +1,9 @@
 package registerUser
 
 import (
-    "myapp/core/users/domain/model"
-    "myapp/core/users/domain/repository"
-    "myapp/go_modules/users/dto"
+    "eulabsmyapp/core/users/domain/model"
+    "eulabsmyapp/core/users/domain/repository"
+    "eulabsmyapp/go_modules/users/dto"
     "github.com/google/uuid"
     "golang.org/x/crypto/bcrypt"
 )

@@ -1,6 +1,6 @@
 package repository
 
-import "myapp/core/orders/domain/model"
+import "eulabsmyapp/core/orders/domain/model"
 
 type OrderRepository interface {
     Create(order *model.Order) error

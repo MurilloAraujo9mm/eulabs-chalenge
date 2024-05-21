@@ -1,7 +1,7 @@
 package loginUser
 
 import (
-    "myapp/core/users/domain/repository"
+    "eulabsmyapp/core/users/domain/repository"
     "time"
 
     "github.com/golang-jwt/jwt/v4"

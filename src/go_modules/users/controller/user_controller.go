@@ -1,9 +1,9 @@
 package controller
 
 import (
-    "myapp/go_modules/users/dto"
-    registerUser "myapp/core/users/application/usecase/registerUser"
-    loginUser "myapp/core/users/application/usecase/loginUser"
+    "eulabsmyapp/go_modules/users/dto"
+    registerUser "eulabsmyapp/core/users/application/usecase/registerUser"
+    loginUser "eulabsmyapp/core/users/application/usecase/loginUser"
     "net/http"
 
     "github.com/labstack/echo/v4"

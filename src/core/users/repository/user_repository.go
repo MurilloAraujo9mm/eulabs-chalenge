@@ -2,7 +2,7 @@ package repository
 
 import (
     "database/sql"
-    "myapp/core/users/model"
+    "eulabsmyapp/core/users/model"
     "github.com/google/uuid"
 )
 
